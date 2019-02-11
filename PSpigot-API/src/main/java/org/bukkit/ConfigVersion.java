@@ -1,0 +1,10 @@
+package org.bukkit;
+
+/**
+ * A hack to handle values in the api module from the server module
+ */
+public class ConfigVersion {
+
+    public static String version = "Unknown";
+    public static Boolean disableOpPermissions = Boolean.FALSE;
+}
