@@ -175,7 +175,7 @@ public class PSpigotCommand extends Command {
     }
 
     private void sendHelp(CommandSender sender) {
-        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "---------------------------------------------");
         sender.sendMessage(Bukkit.getServer().getSecondColor() + ChatColor.BOLD.toString() + "                  Classic Commands:");
         sender.sendMessage("   ");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot setprotocolsupport <boolean>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the protocolsupport");
@@ -184,7 +184,7 @@ public class PSpigotCommand extends Command {
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot reload" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Reload SpookySpigot");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/knockback" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Config the knockback");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/potions" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Config the potions");
-        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "---------------------------------------------");
         sender.sendMessage(Bukkit.getServer().getSecondColor() + ChatColor.BOLD.toString() + "                  Color Commands:");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot setfirstcolor <string>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the first color");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot setsecondcolor <string>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the second color");
@@ -194,6 +194,6 @@ public class PSpigotCommand extends Command {
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot setpositivecolor <string>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the positive color");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot setseparatorcolor <string>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the separator color");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot sethitdetection <int>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set hit detection");
-        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "---------------------------------------------");
     }
 }
