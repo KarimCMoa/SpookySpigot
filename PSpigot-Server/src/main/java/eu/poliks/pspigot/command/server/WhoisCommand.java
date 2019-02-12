@@ -21,7 +21,7 @@ public class WhoisCommand extends Command
     }
 
     public void printDetails(CommandSender sender, Player target) {
-        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH +"-----------------------------------------------------");
+        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH +"------------------------------------------------------");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + " Displaying " + Bukkit.getServer().getSecondColor() +  target.getName() + Bukkit.getServer().getFirstColor() + " Information.");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "  Health: " + Bukkit.getServer().getSecondColor() +  ((Damageable) target).getHealth() + Bukkit.getServer().getFirstColor()  + "/" + Bukkit.getServer().getSecondColor() + ((Damageable) target).getMaxHealth());
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "  Hunger/Saturation: " + Bukkit.getServer().getSecondColor() +  target.getFoodLevel() + Bukkit.getServer().getSecondColor() + "/20 (" + Bukkit.getServer().getSecondColor() + target.getSaturation() + ")");
@@ -40,7 +40,7 @@ public class WhoisCommand extends Command
         } else {
             sender.sendMessage(Bukkit.getServer().getFirstColor() + "  IP Address: " + Bukkit.getServer().getNegativeColor() + "Hidden");
         }
-        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH +"-----------------------------------------------------");
+        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH +"------------------------------------------------------");
     }
 
     public boolean execute(CommandSender sender, String label, String[] args) {
