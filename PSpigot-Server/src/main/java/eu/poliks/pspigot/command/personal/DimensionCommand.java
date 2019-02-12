@@ -14,13 +14,13 @@ public class DimensionCommand extends Command {
     }
 
     private void sendHelp(CommandSender sender) {
-        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "---------------------------------------------");
         sender.sendMessage(Bukkit.getServer().getSecondColor() + ChatColor.BOLD.toString() + "Dimension commands:");
         sender.sendMessage("   ");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/dimension" + Bukkit.getServer().getSecondColor() +" normal");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/dimension" + Bukkit.getServer().getSecondColor() +" nether");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/dimension" + Bukkit.getServer().getSecondColor() +" end");
-        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "---------------------------------------------");
     }
 
     public boolean execute(CommandSender sender, String alias, String[] args) {
