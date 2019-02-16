@@ -47,8 +47,7 @@ public class TicksPerSecondCommand extends Command {
 
 
 		sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "-------------------------------------");
-		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Uptime" + Bukkit.getServer().getSeparatorColor() + ": " + Bukkit.getServer().getFirstColor() + new Date().toString());
-		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Current Server Time" + Bukkit.getServer().getSeparatorColor() +  ": " + new Date().toString());
+		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Server Current Time" + Bukkit.getServer().getSeparatorColor() + ": " + Bukkit.getServer().getFirstColor() + new Date().toString());
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Server Current TPS" + Bukkit.getServer().getSeparatorColor() + ": " + format(Bukkit.spigot().getTPS()[0]));
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Server Current Lag" + Bukkit.getServer().getSeparatorColor() + ": " + bar + Bukkit.getServer().getSecondColor() + " (" + lag + "%)");
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Past Server TPS (1m, 5m, 15m)" + Bukkit.getServer().getSeparatorColor() + ": " + text);
