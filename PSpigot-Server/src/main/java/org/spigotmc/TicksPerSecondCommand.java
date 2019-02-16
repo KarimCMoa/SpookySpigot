@@ -6,10 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-
-import java.text.DecimalFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class TicksPerSecondCommand extends Command {
 	long startTime = System.currentTimeMillis();
@@ -20,6 +17,7 @@ public class TicksPerSecondCommand extends Command {
 		this.usageMessage = "/tps";
 		this.setPermission("bukkit.command.tps");
 	}
+
 
 	@Override
 	public boolean execute(CommandSender sender, String currentAlias, String[] args) {
@@ -53,7 +51,7 @@ public class TicksPerSecondCommand extends Command {
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Current Server Time" + Bukkit.getServer().getSeparatorColor() +  ": " + new Date().toString());
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Server Current TPS" + Bukkit.getServer().getSeparatorColor() + ": " + format(Bukkit.spigot().getTPS()[0]));
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Server Current Lag" + Bukkit.getServer().getSeparatorColor() + ": " + bar + Bukkit.getServer().getSecondColor() + " (" + lag + "%)");
-		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Past Server TPS (1m, 5m, 15m)" + Bukkit.getServer().getSeparatorColor() + ":" + text);
+		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Past Server TPS (1m, 5m, 15m)" + Bukkit.getServer().getSeparatorColor() + ": " + text);
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Total Entities" + Bukkit.getServer().getSeparatorColor() + ": " + Bukkit.getServer().getFirstColor() + this.getTotalEntities());
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Loaded Chunks" + Bukkit.getServer().getSeparatorColor() + ": " + Bukkit.getServer().getFirstColor() + this.getLoadedChunks());
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Total Ram"+ Bukkit.getServer().getSeparatorColor() + ": " + Bukkit.getServer().getFirstColor() + totalram);
@@ -79,7 +77,7 @@ public class TicksPerSecondCommand extends Command {
 
 
 	private static String formatMem(double mem) {
-		return "§c" + Math.round(mem / 1024 / 1024) + "MB";
+		return Bukkit.getServer().getFirstColor() + Math.round(mem / 1024 / 1024) + "MB";
 	}
 
 	public String getProgressBar(final int current, final int max, final int totalBars, final String symbol, final String completedColor, final String notCompletedColor) {

@@ -175,6 +175,7 @@ public final class CraftServer implements Server {
     private String pColor;
     private String separatorColor;
     private String PSName;
+    private String DiscordIP;
     private float potionOffset;
     private float potionMultiplier;
     private float potionSpeed;
@@ -582,7 +583,7 @@ public final class CraftServer implements Server {
 
     @Override
     public boolean getAllowNether() {
-        return this.getConfigBoolean("allow-nether", true);
+        return this.getConfigBoolean("allow-nether", false);
     }
 
     public boolean getWarnOnOverload() {
@@ -1939,6 +1940,10 @@ public final class CraftServer implements Server {
             Bukkit.getServer().getLogger().info("[PSpigot] Could not found PSName in config, creating it");
             spigotConfig.set("messages.color.psname", "POLIKS");
         }
+        if (!spigotConfig.isSet("messages.color.discordip")) {
+            Bukkit.getServer().getLogger().info("[PSpigot] Could not found DiscordIP in config, creating it");
+            spigotConfig.set("messages.color.discordip", "https://discordapp.com/");
+        }
         if (!spigotConfig.isSet("KnockBack.active")) {
             Bukkit.getServer().getLogger().info("[PSpigot] Could not found active KnockBack in config, creating it");
             spigotConfig.set("KnockBack.active", "default");
@@ -2062,6 +2067,7 @@ public final class CraftServer implements Server {
         this.pColor = spigotConfig.getString("messages.color.positive").replaceAll("&", "§");
         this.separatorColor = spigotConfig.getString("messages.color.separator").replaceAll("&", "§");
         this.PSName = spigotConfig.getString("messages.color.psname").replaceAll("&", "§");
+        this.DiscordIP = spigotConfig.getString("messages.color.discordip").replaceAll("&", "§");
         this.potionOffset = Float.parseFloat(spigotConfig.getString("potions.offset"));
         this.potionSpeed = Float.parseFloat(spigotConfig.getString("potions.speed"));
         this.potionMultiplier = Float.parseFloat(spigotConfig.getString("potions.multiplier"));
@@ -2088,6 +2094,7 @@ public final class CraftServer implements Server {
         spigotConfig.set("messages.color.positive", "&a");
         spigotConfig.set("messages.color.separator", "&7");
         spigotConfig.set("messages.color.psname", "POLIKS");
+        spigotConfig.set("messages.color.discordip", "https://discordapp.com/");
 
         KnockBack defaultProfile = new KnockbackProfile("Default");
 
@@ -2242,6 +2249,11 @@ public final class CraftServer implements Server {
     }
 
     @Override
+    public String getDiscordIP() {
+        return DiscordIP;
+    }
+
+    @Override
     public void setSeparatorColor(String s) {
         spigotConfig.set("messages.color.separator", s);
         savePSpigot();
@@ -2253,6 +2265,13 @@ public final class CraftServer implements Server {
         spigotConfig.set("messages.color.psname", s);
         savePSpigot();
         this.PSName = s.replaceAll("&", "§");
+    }
+
+    @Override
+    public void setDiscordIP(String s) {
+        spigotConfig.set("messages.color.discordip", s);
+        savePSpigot();
+        this.DiscordIP = s.replaceAll("&", "§");
     }
 
     public Spigot spigot() {

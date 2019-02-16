@@ -62,8 +62,10 @@ public class DevCommand extends Command
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "Negative Color: " + Bukkit.getServer().getNegativeColor() + "Test");
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "Positive Color: " + Bukkit.getServer().getPositiveColor() + "Test");
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "ProtocolSupport: "+ Bukkit.getServer().getSecondColor() +  Bukkit.getServer().isProtocolSupport());
-                    sender.sendMessage(Bukkit.getServer().getFirstColor() + "ServerName: " + Bukkit.getServer().getPSName());
-                    sender.sendMessage(Bukkit.getServer().getFirstColor() + "Dimension: "+ Bukkit.getServer().getSecondColor() + player.getFakeEnvironment());
+                    sender.sendMessage(Bukkit.getServer().getFirstColor() + "ServerName:" + " " + Bukkit.getServer().getPSName());
+                    sender.sendMessage(Bukkit.getServer().getFirstColor() + "Dimension: " + Bukkit.getServer().getSecondColor() + player.getFakeEnvironment());
+                    sender.sendMessage(Bukkit.getServer().getNegativeColor() + ChatColor.BOLD +"    ⚠ for this, please remove nether and end in the spigot config!");
+                        sender.sendMessage(Bukkit.getServer().getFirstColor() + "Discord: " + Bukkit.getServer().getSecondColor() + Bukkit.getServer().getDiscordIP());
                     sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "--------------------------------------------");
                 }
                 if(args[0].equalsIgnoreCase("permissions")){
@@ -76,11 +78,13 @@ public class DevCommand extends Command
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "Knockback Command: " + Bukkit.getServer().getSecondColor() + "spookyspigot.knockback.use");
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "Potions Command: " + Bukkit.getServer().getSecondColor() + "spookyspigot.potions.use");
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "Dimension Command: " + Bukkit.getServer().getSecondColor() + "spookyspigot.dimension");
+                    sender.sendMessage(Bukkit.getServer().getNegativeColor() + ChatColor.BOLD +"    ⚠ for this, please remove nether and end in the spigot config!");
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "ClearChat Command: " + Bukkit.getServer().getSecondColor() + "spookyspigot.clearchat");
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "SetSlots Command: " + Bukkit.getServer().getSecondColor() + "spookyspigot.setslot");
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "Whois Command: " + Bukkit.getServer().getSecondColor() + "spookyspigot.whois");
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "Whois Command (All Informations): " + Bukkit.getServer().getSecondColor() + "spookyspigot.whois.admin");
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "Broadcast Command: " + Bukkit.getServer().getSecondColor() + "spookyspigot.broadcast");
+                    sender.sendMessage(Bukkit.getServer().getFirstColor() + "IP Command: " + Bukkit.getServer().getSecondColor() + "spookyspigot.ipcommand");
                     sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "--------------------------------------------");
 
                 }

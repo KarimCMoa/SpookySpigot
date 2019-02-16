@@ -5,10 +5,7 @@ import eu.poliks.pspigot.command.dev.DevCommand;
 import eu.poliks.pspigot.command.dev.DevLogCommand;
 import eu.poliks.pspigot.command.personal.DimensionCommand;
 import eu.poliks.pspigot.command.personal.PingCommand;
-import eu.poliks.pspigot.command.server.BroadcastCommand;
-import eu.poliks.pspigot.command.server.ClearChatCommand;
-import eu.poliks.pspigot.command.server.SetSlotCommand;
-import eu.poliks.pspigot.command.server.WhoisCommand;
+import eu.poliks.pspigot.command.server.*;
 import eu.poliks.pspigot.packet.PacketsManager;
 import eu.poliks.pspigot.player.CustomPlayerMovements;
 import eu.poliks.pspigot.command.gameplay.PotionsCommand;
@@ -59,6 +56,7 @@ public enum PSpigotConfig {
         commands.put("devlog", new DevLogCommand());
         commands.put("dev", new DevCommand());
         commands.put("broadcast", new BroadcastCommand());
+        commands.put("ip", new IPCommand());
 
 
 

@@ -24,7 +24,7 @@ public class PSpigotCommand extends Command {
             return true;
         }
 
-        if (!args[0].equalsIgnoreCase("setfirstcolor") && !args[0].equalsIgnoreCase("setsecondcolor") && !args[0].equalsIgnoreCase("togglethirdcolor") && !args[0].equalsIgnoreCase("setthirdcolor") && !args[0].equalsIgnoreCase("setnegativecolor") && !args[0].equalsIgnoreCase("setpositivecolor") && !args[0].equalsIgnoreCase("setseparatorcolor") && !args[0].equalsIgnoreCase("setpsname") && !args[0].equalsIgnoreCase("sethitdetection") && !args[0].equalsIgnoreCase("setprotocolsupport") && !args[0].equalsIgnoreCase("reload")) {
+        if (!args[0].equalsIgnoreCase("setfirstcolor") && !args[0].equalsIgnoreCase("setsecondcolor") && !args[0].equalsIgnoreCase("togglethirdcolor") && !args[0].equalsIgnoreCase("setthirdcolor") && !args[0].equalsIgnoreCase("setnegativecolor") && !args[0].equalsIgnoreCase("setpositivecolor") && !args[0].equalsIgnoreCase("setseparatorcolor") && !args[0].equalsIgnoreCase("setname") && !args[0].equalsIgnoreCase("setdiscordip") && !args[0].equalsIgnoreCase("sethitdetection") && !args[0].equalsIgnoreCase("setprotocolsupport") && !args[0].equalsIgnoreCase("reload")) {
             sendHelp(sender);
             return true;
         }
@@ -116,6 +116,17 @@ public class PSpigotCommand extends Command {
                 }
             }
             break;
+            case "setdiscordip": {
+                if (args.length > 1) {
+                    String color = args[1];
+
+                    Bukkit.getServer().setDiscordIP(color);
+                    sender.sendMessage(Bukkit.getServer().getPositiveColor() + "DiscordIP has been updated to " + color);
+                } else {
+                    sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Usage: /spookyspigot setdiscordip <string>");
+                }
+            }
+            break;
             case "sethitdetection": {
                 if (args.length > 1) {
                     if (isInteger(args[1])) {
@@ -180,6 +191,7 @@ public class PSpigotCommand extends Command {
         sender.sendMessage("   ");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot setprotocolsupport <boolean>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the protocolsupport");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot setname <string>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the Server Name");
+        sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot setdiscordip <string>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the DiscordIP");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot sethitdetection <int>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the hit detection");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot reload" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Reload SpookySpigot");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/knockback" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Config the knockback");
@@ -193,7 +205,6 @@ public class PSpigotCommand extends Command {
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot setnegativecolor <string>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the negative color");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot setpositivecolor <string>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the positive color");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot setseparatorcolor <string>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set the separator color");
-        sender.sendMessage(Bukkit.getServer().getFirstColor() + "/spookyspigot sethitdetection <int>" + Bukkit.getServer().getSeparatorColor() + " - " + Bukkit.getServer().getSecondColor() + "Set hit detection");
         sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "---------------------------------------------");
     }
 }

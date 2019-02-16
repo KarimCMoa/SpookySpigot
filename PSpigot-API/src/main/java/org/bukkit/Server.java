@@ -1086,6 +1086,12 @@ public interface Server extends PluginMessageRecipient {
 
     void setPSName(String s);
 
+    String getDiscordIP();
+
+    void setDiscordIP(String s);
+
+
+
 
     Spigot spigot();
 }
