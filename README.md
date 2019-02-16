@@ -1,4 +1,4 @@
-PaperSpigot [![CI Status](http://ci.destroystokyo.com/buildStatus/icon?job=PaperSpigot)](http://ci.destroystokyo.com/job/PaperSpigot/)
+PaperSpigot [![Website]] (http://karimweb.me/)
 ===========
 
 SpookySpigot made by POLIKS for Spooky Industries
