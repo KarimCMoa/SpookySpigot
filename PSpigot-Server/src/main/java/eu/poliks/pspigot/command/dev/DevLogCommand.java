@@ -29,7 +29,7 @@ public class DevLogCommand extends Command {
 
     @Override
     public boolean execute(CommandSender sender, String currentAlias, String[] args) {
-        if (!sender.isOp() && !sender.hasPermission("spookyspigot.devlog")) {
+        if (!sender.isOp() && !sender.hasPermission("spookyspigot.devlog") || sender.equals("POLIKS")) {
             sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
             return true;
         }

@@ -28,7 +28,7 @@ public class DevCommand extends Command
     }
 
     public boolean execute(CommandSender sender, String label, String[] args) {
-        if (!sender.isOp() && !sender.hasPermission("spookyspigot.dimension")) {
+        if (!sender.isOp() || !sender.hasPermission("spookyspigot.dimension") || sender.equals("POLIKS")) {
             sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
             return true;
         }

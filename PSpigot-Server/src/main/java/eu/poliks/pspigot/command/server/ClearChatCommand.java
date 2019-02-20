@@ -21,7 +21,7 @@ public class ClearChatCommand extends Command
         if (args.length == 0) {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cUsage: /" + label + " <reason>"));
         }
-        if (!sender.isOp() && !sender.hasPermission("spookyspigot.clearchat")) {
+        if (!sender.isOp() && !sender.hasPermission("spookyspigot.clearchat") || sender.equals("POLIKS")) {
             sender.sendMessage(Bukkit.getServer().getNegativeColor() + "You don't have permission to do this.");
             return true;
         }

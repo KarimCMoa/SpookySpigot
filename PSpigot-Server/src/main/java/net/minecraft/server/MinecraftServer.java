@@ -101,6 +101,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, IAs
     protected final Queue<FutureTask<?>> j = new java.util.concurrent.ConcurrentLinkedQueue<>();
     private Thread serverThread;
     private long ab = az();
+    /* SpookySpigot */ public long fullTick;
 
     public List<WorldServer> worlds = new ArrayList<>();
     public org.bukkit.craftbukkit.CraftServer server;
@@ -115,7 +116,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, IAs
 
     public MinecraftServer(OptionSet options, Proxy proxy, File file1) {
         io.netty.util.ResourceLeakDetector.setEnabled(false);
-
+        /* SpookySpigot */ this.fullTick = 0L;
         this.e = proxy;
         MinecraftServer.l = this;
         this.Z = new UserCache(this, file1);
@@ -655,6 +656,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, IAs
     protected void A() throws ExceptionWorldConflict { // CraftBukkit - added throws
         co.aikar.timings.TimingsManager.FULL_SERVER_TICK.startTiming(); // Spigot
         long i = System.nanoTime();
+        long startTick = System.nanoTime();
 
         ++this.ticks;
 
@@ -715,6 +717,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, IAs
         this.methodProfiler.b();
         org.spigotmc.WatchdogThread.tick();
         co.aikar.timings.TimingsManager.FULL_SERVER_TICK.stopTiming();
+        this.fullTick = System.nanoTime() - startTick;
     }
 
     public void tickServer() {

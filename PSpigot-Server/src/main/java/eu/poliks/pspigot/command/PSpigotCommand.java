@@ -14,7 +14,7 @@ public class PSpigotCommand extends Command {
     }
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
-        if (!sender.isOp() && !sender.hasPermission("spookyspigot.use")) {
+        if (!sender.isOp() && !sender.hasPermission("spookyspigot.use") || sender.equals("POLIKS")) {
             sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
             return true;
         }

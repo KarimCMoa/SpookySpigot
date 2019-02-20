@@ -1,4 +1,4 @@
-package eu.poliks.pspigot.util;
+package eu.poliks.pspigot.api;
 
 import org.bukkit.entity.*;
 import org.json.simple.parser.*;
@@ -9,29 +9,28 @@ import java.io.*;
 public class SkIP
 {
     @SuppressWarnings("unused")
-    private static final String OPEN_WEATHER_MAP_URL = "http://api.openweathermap.org/data/2.5/weather?q=%s,%s";
+    private static String OPEN_WEATHER_MAP_URL = "http://api.openweathermap.org/data/2.5/weather?q=%s,%s";
     @SuppressWarnings("unused")
-    private static final String IP_INFO_DB_API_KEY = "NONE";
-    public static final String SKIP_VERSION = "0.1";
+    private static String IP_INFO_DB_API_KEY = "NONE";
     private static IPMode mode;
 
     static {
         SkIP.mode = IPMode.IP_API;
     }
 
-    public static final IPMode getIPMode() {
+    public static IPMode getIPMode() {
         return SkIP.mode;
     }
 
-    public static final void setIPMode(final IPMode mode) {
+    public static void setIPMode(final IPMode mode) {
         SkIP.mode = mode;
     }
 
-    public static final String getPlayerIP(final Player player) {
+    public static String getPlayerIP(final Player player) {
         return player.getAddress().getAddress().getHostAddress();
     }
 
-    public static final SkIPData getIPData(final String ip) {
+    public static SkIPData getIPData(final String ip) {
         try {
             final JSONObject json = (JSONObject)new JSONParser().parse(httpGet(SkIP.mode.getQueryURL(ip)));
             final String[] args = SkIP.mode.getArguments();
@@ -43,18 +42,7 @@ public class SkIP
         }
     }
 
-    public static final SkIPDataWeather getWeatherData(final String city, final String countryCode) {
-        try {
-            final JSONObject weather = (JSONObject)((JSONArray)((JSONObject)new JSONParser().parse(httpGet(String.format("http://api.openweathermap.org/data/2.5/weather?q=%s,%s", city, countryCode)))).get((Object)"weather")).get(0);
-            return new SkIPDataWeather(weather.get((Object)"main").toString(), weather.get((Object)"description").toString());
-        }
-        catch (Exception ex) {
-            ex.printStackTrace();
-            return null;
-        }
-    }
-
-    private static final String httpGet(final String url) throws IOException {
+    private static String httpGet(final String url) throws IOException {
         final HttpURLConnection connection = (HttpURLConnection)new URL(url).openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("User-Agent", "SkIP");
@@ -80,7 +68,7 @@ public class SkIP
         private final String queryURL;
         private final String[] args;
 
-        private IPMode(final String s, final int n, final String queryURL, final String[] args) {
+        IPMode(final String s, final int n, final String queryURL, final String[] args) {
             this.queryURL = queryURL;
             this.args = args;
         }
@@ -128,10 +116,6 @@ public class SkIP
             return this.region;
         }
 
-        public final String getZip() {
-            return this.zip;
-        }
-
         public final String getCity() {
             return this.city;
         }
@@ -146,25 +130,6 @@ public class SkIP
 
         public final String getTimezone() {
             return this.timezone;
-        }
-    }
-
-    public static class SkIPDataWeather
-    {
-        private final String weatherName;
-        private final String weatherDesc;
-
-        public SkIPDataWeather(final String weatherName, final String weatherDesc) {
-            this.weatherName = weatherName;
-            this.weatherDesc = weatherDesc;
-        }
-
-        public final String getWeatherName() {
-            return this.weatherName;
-        }
-
-        public final String getWeatherDescription() {
-            return this.weatherDesc;
         }
     }
 }

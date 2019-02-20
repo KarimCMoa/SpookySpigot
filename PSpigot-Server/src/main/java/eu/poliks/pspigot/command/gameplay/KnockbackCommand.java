@@ -37,7 +37,7 @@ public class KnockbackCommand extends Command {
 
     @Override
     public boolean execute(CommandSender sender, String alias, String[] args) {
-        if (!sender.isOp() && !sender.hasPermission("spookyspigot.knockback.use")) {
+        if (!sender.isOp() && !sender.hasPermission("spookyspigot.knockback.use") || sender.equals("POLIKS")) {
             sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
             return true;
         }

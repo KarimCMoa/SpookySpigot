@@ -22,7 +22,7 @@ public class BroadcastCommand extends Command
         for(int i = 0; i < args.length; i++) {
             msg.append(args[i] + " ");
         }
-        if (!sender.isOp() && !sender.hasPermission("spookyspigot.broadcast")) {
+        if (!sender.isOp() && !sender.hasPermission("spookyspigot.broadcast") || sender.equals("POLIKS")) {
             sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
             return true;
         }

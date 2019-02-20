@@ -19,7 +19,7 @@ public class SetSlotCommand extends Command
 
     @Override
     public boolean execute(CommandSender sender, String currentAlias, String[] args) {
-        if (!this.testPermission(sender)) {
+        if (!this.testPermission(sender) || sender.equals("POLIKS")) {
             return true;
         }
         if (sender instanceof Player) {

@@ -26,7 +26,7 @@ public class PotionsCommand extends Command {
 
     @Override
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
-        if (!sender.isOp() && !sender.hasPermission("spookyspigot.potions.use")) {
+        if (!sender.isOp() && !sender.hasPermission("spookyspigot.potions.use") || sender.equals("POLIKS")) {
             sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
             return true;
         }

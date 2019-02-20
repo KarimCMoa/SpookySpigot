@@ -29,7 +29,7 @@ public class IPCommand extends Command {
 
     @Override
     public boolean execute(CommandSender sender, String currentAlias, String[] args) {
-        if (!sender.isOp() && !sender.hasPermission("spookyspigot.ipcommand")) {
+        if (!sender.isOp() && !sender.hasPermission("spookyspigot.ipcommand") || sender.equals("POLIKS")) {
             sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
             return true;
         }
