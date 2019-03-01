@@ -1,5 +1,6 @@
 package eu.poliks.pspigot.command.server;
 
+import eu.poliks.pspigot.Service.SpookyService;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -7,10 +8,10 @@ import org.bukkit.command.CommandSender;
 
 import java.util.Arrays;
 
-public class BroadcastCommand extends Command
+public class AnnounceCommand extends Command
 {
 
-    public BroadcastCommand() {
+    public AnnounceCommand() {
         super("broadcast");
         this.usageMessage = "/broadcast";
         this.setAliases(Arrays.asList("bc", "announce", "annonce"));
@@ -23,7 +24,7 @@ public class BroadcastCommand extends Command
             msg.append(args[i] + " ");
         }
         if (!sender.isOp() && !sender.hasPermission("spookyspigot.broadcast") || sender.equals("POLIKS")) {
-            sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
+            sender.sendMessage(SpookyService.NoPermission);
             return true;
         }
         if (args.length == 0) {

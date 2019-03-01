@@ -3,6 +3,7 @@ package eu.poliks.pspigot.command.server;
 import java.util.Arrays;
 import java.util.UUID;
 
+import eu.poliks.pspigot.Service.SpookyService;
 import eu.poliks.pspigot.api.SkIP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -70,7 +71,7 @@ public class WhoisCommand extends Command
                 sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Usage: /whois <player>");
             }
         } else {
-            sender.sendMessage(Bukkit.getServer().getNegativeColor() + "You do not have permissions to execute this command.");
+            sender.sendMessage(SpookyService.NoPermission);
         }
 
         return false;

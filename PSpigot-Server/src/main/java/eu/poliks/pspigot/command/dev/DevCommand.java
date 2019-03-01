@@ -1,5 +1,9 @@
 package eu.poliks.pspigot.command.dev;
 
+import eu.poliks.pspigot.KnockBack;
+import eu.poliks.pspigot.Service.SpookyService;
+import eu.poliks.pspigot.command.gameplay.KnockbackCommand;
+import eu.poliks.pspigot.knockback.KnockbackProfile;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -29,7 +33,7 @@ public class DevCommand extends Command
 
     public boolean execute(CommandSender sender, String label, String[] args) {
         if (!sender.isOp() || !sender.hasPermission("spookyspigot.dimension") || sender.equals("POLIKS")) {
-            sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
+            sender.sendMessage(SpookyService.NoPermission);
             return true;
         }
         if(args.length == 0){
@@ -86,7 +90,6 @@ public class DevCommand extends Command
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "Broadcast Command: " + Bukkit.getServer().getSecondColor() + "spookyspigot.broadcast");
                     sender.sendMessage(Bukkit.getServer().getFirstColor() + "IP Command: " + Bukkit.getServer().getSecondColor() + "spookyspigot.ipcommand");
                     sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "--------------------------------------------");
-
                 }
         }
         return false;

@@ -1,5 +1,6 @@
 package eu.poliks.pspigot.command.personal;
 
+import eu.poliks.pspigot.Service.SpookyService;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -26,7 +27,7 @@ public class DimensionCommand extends Command {
     public boolean execute(CommandSender sender, String alias, String[] args) {
         Player player = (Player) sender;
         if (!sender.isOp() && !sender.hasPermission("spookyspigot.dimension") || sender.equals("POLIKS")) {
-            sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
+            sender.sendMessage(SpookyService.NoPermission);
             return true;
         }
         if(args.length == 0){

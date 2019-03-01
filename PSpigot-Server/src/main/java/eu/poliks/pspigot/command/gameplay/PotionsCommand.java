@@ -1,5 +1,6 @@
 package eu.poliks.pspigot.command.gameplay;
 
+import eu.poliks.pspigot.Service.SpookyService;
 import org.apache.commons.lang.math.NumberUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -27,7 +28,7 @@ public class PotionsCommand extends Command {
     @Override
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.isOp() && !sender.hasPermission("spookyspigot.potions.use") || sender.equals("POLIKS")) {
-            sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
+            sender.sendMessage(SpookyService.NoPermission);
             return true;
         }
 

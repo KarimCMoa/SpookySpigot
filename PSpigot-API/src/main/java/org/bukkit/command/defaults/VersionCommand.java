@@ -28,7 +28,7 @@ public class VersionCommand extends BukkitCommand {
 	@Override
 	public boolean execute(CommandSender sender, String currentAlias, String[] args) {
 		if (args.length == 0) {
-			sender.sendMessage(Bukkit.getServer().getSecondColor() + "This server is running " + Bukkit.getServer().getFirstColor() + "SpookySpigot" + Bukkit.getServer().getSecondColor() + " version " + Bukkit.getServer().getFirstColor() + "1.5-A" + Bukkit.getServer().getSecondColor() + " by " + Bukkit.getServer().getFirstColor() + "POLIKS " + Bukkit.getServer().getSecondColor() + "for " + Bukkit.getServer().getFirstColor() + Bukkit.getServer().getPSName() + Bukkit.getServer().getSecondColor() + ".");
+			sender.sendMessage(Bukkit.getServer().getSecondColor() + "This server is running " + Bukkit.getServer().getFirstColor() + "SpookySpigot" + Bukkit.getServer().getSecondColor() + " version " + Bukkit.getServer().getFirstColor() + "2.0-B" + Bukkit.getServer().getSecondColor() + " by " + Bukkit.getServer().getFirstColor() + "POLIKS " + Bukkit.getServer().getSecondColor() + "for " + Bukkit.getServer().getFirstColor() + Bukkit.getServer().getPSName() + Bukkit.getServer().getSecondColor() + ".");
 		} else {
 			StringBuilder name = new StringBuilder();
 

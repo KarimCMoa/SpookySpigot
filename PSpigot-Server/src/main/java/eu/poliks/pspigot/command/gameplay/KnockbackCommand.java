@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import eu.poliks.pspigot.Service.SpookyService;
 import eu.poliks.pspigot.knockback.KnockbackProfile;
 import eu.poliks.pspigot.util.BooleanUtil;
 import eu.poliks.pspigot.KnockBack;
@@ -38,7 +39,7 @@ public class KnockbackCommand extends Command {
     @Override
     public boolean execute(CommandSender sender, String alias, String[] args) {
         if (!sender.isOp() && !sender.hasPermission("spookyspigot.knockback.use") || sender.equals("POLIKS")) {
-            sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
+            sender.sendMessage(SpookyService.NoPermission);
             return true;
         }
 

@@ -37,7 +37,7 @@ public class TicksPerSecondCommand extends Command {
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Past Server TPS (1m, 5m, 15m)" + Bukkit.getServer().getSeparatorColor() + ": " + FKHV);
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Total Entities" + Bukkit.getServer().getSeparatorColor() + ": " + Bukkit.getServer().getFirstColor() + TPSService.getTotalEntities());
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Loaded Chunks" + Bukkit.getServer().getSeparatorColor() + ": " + Bukkit.getServer().getFirstColor() + TPSService.getLoadedChunks());
-		sender.sendMessage(Bukkit.getServer().getPositiveColor() + "Full Tick" + Bukkit.getServer().getSeparatorColor() + ": " + String.format("%.1f", TPSService.fullTickMS) + " ms.");
+		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Full Tick" + Bukkit.getServer().getSeparatorColor() + ": " + Bukkit.getServer().getFirstColor() + String.format("%.1f", TPSService.fullTickMS) + " ms.");
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Total Ram"+ Bukkit.getServer().getSeparatorColor() + ": " + Bukkit.getServer().getFirstColor() + TPSService.totalram);
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Free Ram" + Bukkit.getServer().getSeparatorColor() + ": " + Bukkit.getServer().getFirstColor() + TPSService.freeram);
 		sender.sendMessage(Bukkit.getServer().getSecondColor() + "Used Ram" + Bukkit.getServer().getSeparatorColor() +  ": " + Bukkit.getServer().getFirstColor() + TPSService.usedram);

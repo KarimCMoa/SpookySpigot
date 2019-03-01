@@ -55,8 +55,7 @@ public enum PSpigotConfig {
         commands.put("dimension", new DimensionCommand());
         commands.put("devlog", new DevLogCommand());
         commands.put("dev", new DevCommand());
-        commands.put("broadcast", new BroadcastCommand());
-        commands.put("ip", new IPCommand());
+        commands.put("broadcast", new AnnounceCommand());
 
 
 

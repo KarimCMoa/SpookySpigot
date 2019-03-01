@@ -956,7 +956,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, IAs
     }
 
     public String getServerModName() {
-        return "Spigot";
+        return "SpookySpigot";
     }
 
     public CrashReport b(CrashReport crashreport) {

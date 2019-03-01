@@ -2,6 +2,7 @@ package eu.poliks.pspigot.command.server;
 
 import java.util.Arrays;
 
+import eu.poliks.pspigot.Service.SpookyService;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -22,7 +23,7 @@ public class ClearChatCommand extends Command
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cUsage: /" + label + " <reason>"));
         }
         if (!sender.isOp() && !sender.hasPermission("spookyspigot.clearchat") || sender.equals("POLIKS")) {
-            sender.sendMessage(Bukkit.getServer().getNegativeColor() + "You don't have permission to do this.");
+            sender.sendMessage(SpookyService.NoPermission);
             return true;
         }
         else {
@@ -31,7 +32,7 @@ public class ClearChatCommand extends Command
                 online.sendMessage(ChatColor.translateAlternateColorCodes('&', "&aPublic chat has been cleared by " + sender.getName() + "."));
             }
         }
-        return true;
+        return false;
 }
 
 }

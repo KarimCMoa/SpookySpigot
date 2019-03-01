@@ -21,7 +21,7 @@ public class PingCommand extends Command {
         super("ping");
         this.description = "Get the ping between you and the server";
         this.usageMessage = "/ping <player>";
-        this.setAliases(Arrays.asList("ms", "latence"));
+        this.setAliases(Arrays.asList("ms", "latence", "latency"));
     }
 
     @Override

