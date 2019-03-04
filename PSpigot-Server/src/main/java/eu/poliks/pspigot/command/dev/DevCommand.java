@@ -47,10 +47,9 @@ public class DevCommand extends Command
                     }
                 if(args[0].equalsIgnoreCase("author")){
                     sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "--------------------------------------------");
-                    sender.sendMessage(Bukkit.getServer().getSecondColor() + ChatColor.BOLD.toString() + "Spooky Industries:");
+                    sender.sendMessage(Bukkit.getServer().getSecondColor() + ChatColor.BOLD.toString() + "SpookySpigot:");
                     sender.sendMessage("   ");
                     sender.sendMessage(Bukkit.getServer().getSeparatorColor() + "* " + Bukkit.getServer().getFirstColor() + "SpookySpigot created by " + Bukkit.getServer().getSecondColor() + "POLIKS");
-                    sender.sendMessage(Bukkit.getServer().getSeparatorColor() + "* " + Bukkit.getServer().getFirstColor() + "SpookyAC created by " + Bukkit.getServer().getSecondColor() + "UnknownMyName");
                     sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "--------------------------------------------");
 
                 }
