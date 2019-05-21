@@ -29,8 +29,6 @@ import net.minecraft.server.WorldType;
 import eu.poliks.pspigot.PSpigotConfig;
 import eu.poliks.pspigot.KnockBack;
 import eu.poliks.pspigot.knockback.KnockbackProfile;
-import eu.poliks.pspigot.player.CustomPlayerMovements;
-import eu.poliks.pspigot.packet.PacketsManager;
 import org.bukkit.*;
 import org.bukkit.Warning.WarningState;
 import org.bukkit.World;
@@ -183,9 +181,6 @@ public final class CraftServer implements Server {
     private boolean protocolSupport;
 
     private boolean playerFromTab, activationEntities, activationMobs;
-
-    private Set<PacketsManager> packetsManagers = new HashSet<>();
-    private  Set<CustomPlayerMovements> customPlayerMovements = new HashSet<>();
 
     private final class BooleanWrapper {
         private boolean value = true;
@@ -385,7 +380,7 @@ public final class CraftServer implements Server {
         }
         initPSpigot(type);
         ProtocolSupport.load();
-        PSpigotConfig.getInstance.registerCommands();
+        PSpigotConfig.INSTANCE.registerCommands();
     }
 
     public void disablePlugins() {

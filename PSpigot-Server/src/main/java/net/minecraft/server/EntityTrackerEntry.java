@@ -288,13 +288,13 @@ public class EntityTrackerEntry {
                 }
             }
             this.broadcast(new PacketPlayOutEntityMetadata(this.tracker.getId(), datawatcher, false));
-	        //Update the metadata we send to the player we're tracking itself,
-	        //because we're faking some metadata to the other players..
+            //Update the metadata we send to the player we're tracking itself,
+            //because we're faking some metadata to the other players..
             if (isPlayer) {
                 DataWatcher otherWatcher = datawatcher.clone();
                 EntityPlayer player = ((EntityPlayer) this.tracker);
                 otherWatcher.watch(6, player.getHealth());
-	            player.playerConnection.sendPacket(new PacketPlayOutEntityMetadata(this.tracker.getId(), otherWatcher, false));
+                player.playerConnection.sendPacket(new PacketPlayOutEntityMetadata(this.tracker.getId(), otherWatcher, false));
             }
         }
 
@@ -355,7 +355,7 @@ public class EntityTrackerEntry {
     }
 
     public void updatePlayer(EntityPlayer entityplayer) {
-        org.spigotmc.AsyncCatcher.catchOp( "player tracker update"); // Spigot
+        //org.spigotmc.AsyncCatcher.catchOp( "player tracker update"); // Spigot
         if (entityplayer != this.tracker) {
             if (this.c(entityplayer)) {
                 if (!this.trackedPlayers.contains(entityplayer) && (this.e(entityplayer) || this.tracker.attachedToPlayer)) {
@@ -582,7 +582,7 @@ public class EntityTrackerEntry {
     }
 
     public void clear(EntityPlayer entityplayer, boolean sendDestroy) {
-        org.spigotmc.AsyncCatcher.catchOp( "player tracker clear"); // Spigot
+        //org.spigotmc.AsyncCatcher.catchOp( "player tracker clear"); // Spigot
         if (this.trackedPlayers.contains(entityplayer)) {
             this.trackedPlayers.remove(entityplayer);
             if (sendDestroy) {

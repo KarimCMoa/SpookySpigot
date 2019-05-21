@@ -899,11 +899,10 @@ public abstract class PlayerList {
     }
 
     public void tick() {
-        if (++this.u > 600) {
-            this.sendAll(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.UPDATE_LATENCY, this.players));
+        /*if (++this.u > 600) {
+            this.sendAll(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.UPDATE_LATENCY, this.players.toArray(new EntityPlayer[0])));
             this.u = 0;
-        }
-
+        }*/
     }
 
     public void sendAll(Packet packet) {

@@ -1074,13 +1074,7 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
 		}
 
 		//remove the hidden player from this player user list
-		getHandle().playerConnection.sendPacket(
-				new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, other));
-		if (Bukkit.getServer().isPlayerFromTab()) {
-			getHandle().playerConnection.sendPacket(
-					new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.ADD_PLAYER,
-							other)); // zSpigot
-		}
+		getHandle().playerConnection.sendPacket(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.EnumPlayerInfoAction.REMOVE_PLAYER, other));
 	}
 
 	@Override

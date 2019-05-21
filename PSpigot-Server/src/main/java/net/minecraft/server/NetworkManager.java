@@ -155,7 +155,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet> {
             }
             if (this.m instanceof PlayerConnection) {
                 try {
-                    for (PacketsManager handler : PSpigotConfig.getInstance.getPacketsManagers()) {
+                    for (PacketsManager handler : PSpigotConfig.INSTANCE.getPacketsManagers()) {
                         handler.handleReceivedPacket((PlayerConnection) this.m, packet);
                     }
                 } catch (Exception e) {

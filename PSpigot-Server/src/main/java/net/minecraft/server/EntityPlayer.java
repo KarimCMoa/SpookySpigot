@@ -200,7 +200,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
         if (this.noDamageTicks > 0) {
             --this.noDamageTicks;
         }
-        
+
         // PaperSpigot start - Configurable container update tick rate
         if (--containerUpdateDelay <= 0) {
             this.activeContainer.b();

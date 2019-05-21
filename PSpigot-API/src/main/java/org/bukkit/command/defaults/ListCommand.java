@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.lang.Validate;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -39,7 +40,9 @@ public class ListCommand extends VanillaCommand {
             online.append(player.getDisplayName());
         }
 
-        sender.sendMessage("There are " + players.size() + "/" + Bukkit.getMaxPlayers() + " players online:\n" + online.toString());
+        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "----------------------------------------------------------------");
+        sender.sendMessage(Bukkit.getServer().getSecondColor() + "There are " + Bukkit.getServer().getFirstColor() + players.size() + Bukkit.getServer().getSecondColor() + " players online" + Bukkit.getServer().getSeparatorColor() + ":\n" + ChatColor.RESET + online.toString());
+        sender.sendMessage(Bukkit.getServer().getSeparatorColor() + ChatColor.STRIKETHROUGH + "----------------------------------------------------------------");
 
         return true;
     }

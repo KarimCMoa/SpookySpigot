@@ -1,17 +1,18 @@
 package org.spigotmc;
 
-import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.*;
 
-public class AsyncCatcher
-{
-
+public class AsyncCatcher {
     public static boolean enabled = true;
 
-    public static void catchOp(String reason)
-    {
-        if ( enabled && Thread.currentThread() != MinecraftServer.getServer().primaryThread )
-        {
-            throw new IllegalStateException( "Asynchronous " + reason + "!" );
+    public static boolean isAsync() {
+        return Thread.currentThread() != MinecraftServer.getServer().primaryThread;
+    }
+
+    public static void catchOp(final String reason) {
+        if (AsyncCatcher.enabled && MinecraftServer.currentTick > 0 && Thread.currentThread() != MinecraftServer.getServer().primaryThread) {
+            throw new IllegalStateException("Asynchronous " + reason + "!");
         }
     }
+
 }

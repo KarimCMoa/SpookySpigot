@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-import eu.poliks.pspigot.player.CustomPlayerMovements;
 import eu.poliks.pspigot.packet.PacketsManager;
 import co.aikar.timings.SpigotTimings;
 import com.google.common.collect.Lists;
 import com.google.common.primitives.Doubles;
 import com.google.common.primitives.Floats;
+import eu.poliks.pspigot.player.MovementHandler;
 import io.netty.buffer.Unpooled;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
@@ -267,7 +267,7 @@ public class PlayerConnection implements PacketListenerPlayIn, IUpdatePlayerList
 				float deltaAngle = Math.abs(this.lastYaw - to.getYaw()) + Math.abs(this.lastPitch - to.getPitch());
 
 				if (packetplayinflying.hasPos && delta > 0.0D && this.checkMovement && !this.player.dead) {
-					for (CustomPlayerMovements handler : PSpigotConfig.getInstance.getCustomPlayerMovements()) {
+					for (MovementHandler handler : PSpigotConfig.INSTANCE.getMovementHandlers()) {
 						try {
 							handler.handleUpdateLocation(player, to, from, packetplayinflying);
 						} catch (Exception e) {
@@ -277,7 +277,7 @@ public class PlayerConnection implements PacketListenerPlayIn, IUpdatePlayerList
 				}
 
 				if (packetplayinflying.hasLook && deltaAngle > 0.0F && this.checkMovement && !this.player.dead) {
-					for (CustomPlayerMovements handler : PSpigotConfig.getInstance.getCustomPlayerMovements()) {
+					for (MovementHandler handler : PSpigotConfig.INSTANCE.getMovementHandlers()) {
 						try {
 							handler.handleUpdateRotation(player, to, from, packetplayinflying);
 						} catch (Exception e) {
@@ -952,7 +952,7 @@ public class PlayerConnection implements PacketListenerPlayIn, IUpdatePlayerList
 		try {
 			this.networkManager.handle(packet);
 
-			for (PacketsManager handler : PSpigotConfig.getInstance.getPacketsManagers()) {
+			for (PacketsManager handler : PSpigotConfig.INSTANCE.getPacketsManagers()) {
 				try {
 					handler.handleSentPacket(this, packet);
 				} catch (Exception e) {

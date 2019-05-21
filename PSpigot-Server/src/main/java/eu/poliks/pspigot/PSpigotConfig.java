@@ -7,8 +7,8 @@ import eu.poliks.pspigot.command.personal.DimensionCommand;
 import eu.poliks.pspigot.command.personal.PingCommand;
 import eu.poliks.pspigot.command.server.*;
 import eu.poliks.pspigot.packet.PacketsManager;
-import eu.poliks.pspigot.player.CustomPlayerMovements;
 import eu.poliks.pspigot.command.gameplay.PotionsCommand;
+import eu.poliks.pspigot.player.MovementHandler;
 import net.minecraft.server.MinecraftServer;
 import eu.poliks.pspigot.command.PSpigotCommand;
 import org.bukkit.command.Command;
@@ -20,26 +20,26 @@ import java.util.Set;
 
 public enum PSpigotConfig {
 
-    getInstance;
+    INSTANCE;
 
     public Set<PacketsManager> packetsManagers = new HashSet<>();
-    public  Set<CustomPlayerMovements> customPlayerMovements = new HashSet<>();
     static Map<String, Command> commands;
+    private Set<MovementHandler> movementHandlers = new HashSet <> ();
 
     public Set<PacketsManager> getPacketsManagers() {
         return packetsManagers;
-    }
-
-    public Set<CustomPlayerMovements> getCustomPlayerMovements() {
-        return customPlayerMovements;
     }
 
     public void addPacket(PacketsManager manager) {
         this.packetsManagers.add(manager);
     }
 
-    public void addCustomPlayerMovement(CustomPlayerMovements movement) {
-        this.customPlayerMovements.add(movement);
+    public Set<MovementHandler> getMovementHandlers() {
+        return this.movementHandlers;
+    }
+
+    public void addMovementHandler(MovementHandler handler) {
+        this.movementHandlers.add(handler);
     }
 
 
@@ -56,11 +56,6 @@ public enum PSpigotConfig {
         commands.put("devlog", new DevLogCommand());
         commands.put("dev", new DevCommand());
         commands.put("broadcast", new AnnounceCommand());
-
-
-
-
-
         for (Map.Entry<String, Command> entry : commands.entrySet()) {
             MinecraftServer.getServer().server.getCommandMap().register(entry.getKey(), "spookyspigot", entry.getValue());
         }
